@@ -11,6 +11,6 @@ class ProjectTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Models\project::class, 50)->create();
     }
 }
