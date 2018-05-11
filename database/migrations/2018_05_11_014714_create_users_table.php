@@ -16,11 +16,18 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('password');
-            $table->rememberToken();
+            $table->softDeletes('delete_at');
+            // $table->integer('task_id')->unsigned();
+            // $table->integer('project_id')->unsigned();
             $table->timestamps();
         });
+        /* Schema::table('users',function($table){
+             $table->foreign('task_id')->references('id')->on('tasks');
+             $table->foreign('project_id')->references('id')->on('projects');
+         });*/
+
     }
 
     /**
@@ -33,3 +40,4 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
+
