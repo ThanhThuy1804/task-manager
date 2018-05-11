@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class user extends Model
 {
-    //use Notifiable;
 
-    public $timestamps = false;
-    protected $table = 'projects';
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +15,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'name','created_at','updated_at'
+        'id', 'name','email','delete_at'
     ];
 
     /**
@@ -26,7 +24,7 @@ class Project extends Model
      * @var array
      */
     protected $hidden = [
+        'created_at','updated_at'
     ];
 }
-
 

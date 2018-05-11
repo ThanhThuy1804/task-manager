@@ -13,8 +13,10 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Models\project::class, function (Faker $faker) {
+$factory->define(App\Models\Project::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+        'decription' => $faker->text($maxNbChars = 50),
+        'delete_at' => $faker->dateTime($max = 'now', $timezone = null),
     ];
 });
